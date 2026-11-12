@@ -1,0 +1,21 @@
+{
+  "source": "design/phase-13/exports/selected-scene-poster.webp",
+  "method": "Local composition with licensed Space Grotesk font",
+  "dimensions": [
+    1200,
+    630
+  ],
+  "credits": 0,
+  "files": [
+    "home.png",
+    "work.png",
+    "work-backupdata.png",
+    "work-lighthouse.png",
+    "work-1mb.png",
+    "work-turby.png",
+    "ai-systems.png",
+    "journey.png",
+    "about.png",
+    "contact.png"
+  ]
+}

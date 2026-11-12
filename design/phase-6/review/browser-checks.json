@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Home links all four studies; AI precedes career; reduced motion keeps text visible and media deferred",
+    "The main work link works; the Home film follows forward and reverse scroll",
+    "Motion off removes reveal transforms, stops the scene, and pauses video",
+    "Mobile starts with a poster; the 320px page retains projects and images without JavaScript"
+  ],
+  "errors": []
+}

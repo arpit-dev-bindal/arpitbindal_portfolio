@@ -1,0 +1,33 @@
+.scene-chapter { background: #101216; }
+.scene-chapter .hero { min-height: 650px; padding-block: 40px; }
+.scene-widget { min-width: 0; width: 100%; }
+.scene-surface { position: relative; height: 420px; }
+.scene-surface > div { position: absolute !important; inset: 0; }
+.scene-poster { position: absolute; width: 100%; height: 100%; object-fit: contain; }
+.scene-poster.is-hidden { visibility: hidden; }
+.layer-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.layer-controls button, .scene-options button, .film-controls button { background: none; color: #afb6c2; border: 1px solid #34383f; border-radius: 4px; padding: 10px 12px; font-size: 12px; min-height: 44px; }
+.layer-controls button[aria-pressed=true], .film-controls button[aria-pressed=true] { color: #101216; background: #e75b7f; border-color: #e75b7f; }
+.scene-options, .film-controls { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.scene-options button { border-color: transparent; text-decoration: underline; text-underline-offset: 4px; }
+.scene-widget .scene-description { margin: 16px auto 0; text-align: center; font-size: 14px; min-height: 44px; max-width: 100%; }
+.scene-widget .scene-message { font-size: 12px; color: #afb6c2; text-align: center; margin: 10px auto 0; }
+.scene-surface canvas { touch-action: pan-y; }
+.film-video { width: 100%; aspect-ratio: 16/9; display: block; background: #101216; border-radius: 12px; }
+.film-controls { justify-content: flex-start; }
+.film-controls button { font-size: 14px; padding-inline: 18px; }
+.film-controls button:disabled { opacity: .5; }
+.film-state { font-size: 14px; color: #afb6c2; margin-top: 18px; }
+.prototype-tools { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 16px; border-top: 1px solid #34383f; }
+.prototype-tools p { font-size: 13px; color: #afb6c2; }
+.scene-chapter .hero-copy h1 { font-size: clamp(48px, 5.3vw, 76px); }
+@media(max-width: 1023px) { .scene-surface { height: 350px; } .scene-chapter .hero { grid-template-columns: 1fr 1fr; } .scene-chapter .hero-copy h1 { font-size: 54px; } }
+@media(max-width: 767px) {
+  .scene-chapter .hero { grid-template-columns: 1fr; padding-top: 44px; gap: 30px; min-height: auto; }
+  .scene-chapter .hero-copy h1 { font-size: clamp(39px, 10.9vw, 56px); }
+  .scene-surface { height: auto; aspect-ratio: 4/3; }
+  .layer-controls { gap: 6px; }
+  .layer-controls button { padding-inline: 9px; font-size: 11px; }
+  .prototype-tools { align-items: start; }
+  .prototype-tools p { max-width: 200px; }
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "A01",
+    "title": "Structure concept",
+    "status": "review-only",
+    "note": "Generated shape differs from runtime geometry."
+  },
+  {
+    "id": "A02",
+    "title": "Runtime structure",
+    "status": "existing",
+    "note": "Custom geometry in src/motion/geometry.ts."
+  },
+  {
+    "id": "A03",
+    "title": "Scene poster",
+    "status": "existing",
+    "note": "Rendered from the runtime structure."
+  },
+  {
+    "id": "A04",
+    "title": "Dark background",
+    "status": "deferred",
+    "note": "Keep the flat studio background to reduce visual clutter."
+  },
+  {
+    "id": "A05",
+    "title": "Material film",
+    "status": "selected-existing",
+    "note": "The model-rendered film preserves four layers. The generated candidate adds a layer during motion."
+  },
+  {
+    "id": "A06",
+    "title": "BackupData media",
+    "status": "source-needed",
+    "note": "Actual product captures."
+  },
+  {
+    "id": "A07",
+    "title": "Lighthouse media",
+    "status": "source-needed",
+    "note": "Actual product captures."
+  },
+  {
+    "id": "A08",
+    "title": "1MB media",
+    "status": "source-needed",
+    "note": "Actual product and extension captures."
+  },
+  {
+    "id": "A09",
+    "title": "Turby",
+    "status": "partial",
+    "note": "Six original images exist; layered traits remain unavailable."
+  },
+  {
+    "id": "A10",
+    "title": "Agent memory diagram",
+    "status": "partial",
+    "note": "Current concept map needs architecture confirmation."
+  },
+  {
+    "id": "A11",
+    "title": "AI demonstrations",
+    "status": "partial",
+    "note": "Labeled local examples exist; actual recordings remain unavailable."
+  },
+  {
+    "id": "A12",
+    "title": "Portrait",
+    "status": "source-needed",
+    "note": "Real photograph."
+  },
+  {
+    "id": "A13",
+    "title": "Events",
+    "status": "source-needed",
+    "note": "Real event photographs or slides."
+  },
+  {
+    "id": "A14",
+    "title": "Earlier project images",
+    "status": "source-needed",
+    "note": "Actual project media."
+  },
+  {
+    "id": "A15",
+    "title": "Social images",
+    "status": "deferred",
+    "note": "Compose from approved site assets during metadata work."
+  },
+  {
+    "id": "A16",
+    "title": "Resume",
+    "status": "source-needed",
+    "note": "Approved resume PDF."
+  }
+]

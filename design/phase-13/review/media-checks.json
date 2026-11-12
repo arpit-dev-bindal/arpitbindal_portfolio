@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "All export hashes and byte counts match",
+    "Film uses H.264 at 1280×720 without audio",
+    "Film lasts six seconds and stays below 4 MiB",
+    "Keyframes remain within 0.21 seconds; fast-start metadata precedes video data"
+  ],
+  "video": {
+    "duration": 6.033333,
+    "bytes": 1258007,
+    "keyframes": 31
+  },
+  "errors": []
+}

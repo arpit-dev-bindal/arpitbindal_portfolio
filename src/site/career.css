@@ -1,0 +1,37 @@
+.career-label { font-size: 12px; margin-bottom: 24px; }
+.career-jumps, .career-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 24px; }
+.career-page a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 5px; }
+.career-heading { margin-bottom: 48px; }
+.career-timeline { list-style: none; margin: 0; padding: 0; }
+.journey-entry { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; padding: 40px 0; border-top: 1px solid var(--line-light); scroll-margin-top: 24px; }
+.journey-entry:focus { outline: 2px solid currentColor; outline-offset: 8px; }
+.career-date .mono, .career-kind { font-size: 13px; }
+.career-kind { color: var(--muted-light); margin-top: 12px; }
+.journey-entry h3 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 16px; }
+.career-org, .career-role { font-size: 14px; margin-bottom: 12px; }
+.career-role { color: var(--muted-light); }
+.career-event > div:last-child { border-left: 2px solid var(--line-light); padding-left: 24px; }
+.career-note { font-size: 14px; color: var(--muted-light); margin-top: 24px; }
+.career-end { display: flex; justify-content: space-between; align-items: start; gap: 40px; margin-top: 40px; }
+.career-end p { max-width: 650px; }
+.career-end > a { flex-shrink: 0; }
+.about-intro { max-width: 720px; margin: 40px 0 0 auto; }
+.about-intro a { margin-top: 24px; }
+.about-examples { margin-top: 48px; }
+.about-example { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; border-top: 1px solid var(--line-light); padding: 32px 0; }
+.about-example .mono { font-size: 13px; }
+.about-example h3 { font-size: 30px; margin-bottom: 24px; }
+.about-example p + p { margin-top: 16px; }
+.about-example a { margin-top: 16px; }
+.about-leadership, .about-education { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; }
+.about-leadership > div > p + p { margin-top: 24px; }
+.about-leadership .career-note { color: var(--muted-dark); }
+.about-events { list-style: none; padding: 0; margin-top: 40px; }
+.about-events li { border-top: 1px solid var(--line-dark); padding: 24px 0; }
+.about-events .mono { color: var(--muted-dark); font-size: 12px; margin-bottom: 16px; }
+.about-events a { margin-top: 12px; }
+.about-education article + article { margin-top: 40px; }
+.about-education .mono { font-size: 13px; margin-bottom: 16px; }
+.about-education h3 { font-size: 24px; margin-bottom: 16px; }
+.about-page .career-end h2 { margin-bottom: 24px; }
+@media(max-width:767px) { .journey-entry, .about-example, .about-leadership, .about-education { grid-template-columns: 1fr; gap: 24px; } .career-end { flex-direction: column; gap: 24px; } .journey-entry { padding-block: 32px; } .career-event > div:last-child { padding-left: 16px; } }

@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Six original images load; keyboard open, wraparound, focus trap, Escape, and focus return work",
+    "Every thumbnail selects its image; repeated use retains one dialog",
+    "Touch selection and navigation work; four viewport widths have no page overflow",
+    "Without JavaScript, artwork links open the original images"
+  ],
+  "errors": []
+}

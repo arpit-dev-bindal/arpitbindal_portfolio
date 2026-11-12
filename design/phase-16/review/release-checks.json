@@ -1,0 +1,77 @@
+{
+  "accessibility": [
+    {
+      "path": "/",
+      "violations": [],
+      "incomplete": [
+        "video-caption"
+      ]
+    },
+    {
+      "path": "/work",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/work/backupdata",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/work/lighthouse",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/work/1mb",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/work/turby",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/ai-systems",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/journey",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/about",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/contact",
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "checks": [
+    "Ten routes checked with axe and 200% CSS zoom at 640px",
+    "WebGL failure retains the scene poster and recovery control",
+    "Failed film request retains a poster and visible failure message",
+    "Two cold-load mobile lab samples use 4× CPU slowdown, 150ms latency, and 1.6Mbps download"
+  ],
+  "failures": [],
+  "lab": [
+    {
+      "path": "/",
+      "lcp": 880,
+      "cls": 0.01517823049796725,
+      "transferBytes": 698913
+    },
+    {
+      "path": "/work/backupdata",
+      "lcp": 788,
+      "cls": 0,
+      "transferBytes": 431331
+    }
+  ]
+}

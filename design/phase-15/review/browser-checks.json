@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Ten routes expose unique descriptions, canonical URLs, structured data, and 1200×630 share images",
+    "Six old hash routes migrate with query preservation; live hash changes work; new and unknown anchors remain unchanged",
+    "Preview robots blocks crawling; sitemap lists ten canonical pages; missing pages retain HTTP 404",
+    "Native navigation provides a no-JavaScript route from old incoming links"
+  ],
+  "errors": []
+}

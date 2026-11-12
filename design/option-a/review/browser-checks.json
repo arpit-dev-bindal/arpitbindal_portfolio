@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "Home and Work source controls support keyboard input; both layouts fit five widths and pass axe",
+    "Layer controls stay inside the disclosure; the caption updates; scroll resumes the model story",
+    "Reduced motion and no-JavaScript views preserve project visuals and the scene poster"
+  ],
+  "errors": [],
+  "accessibility": [
+    {
+      "path": "/",
+      "violations": []
+    },
+    {
+      "path": "/work",
+      "violations": []
+    }
+  ]
+}

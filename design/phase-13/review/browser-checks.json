@@ -1,0 +1,7 @@
+{
+  "checks": [
+    "Both films decode, seek in both directions, and support native playback",
+    "Media review fits four screen widths"
+  ],
+  "errors": []
+}

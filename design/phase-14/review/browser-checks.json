@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Shared reveals respect Motion off across six page layouts; text remains visible",
+    "Film pauses off-screen and after a simulated hidden-tab event; return does not restart playback",
+    "Desktop-to-mobile resize restores native playback controls",
+    "Reduced motion avoids scene creation and automatic video loading",
+    "Site media exactly matches the approved exports"
+  ],
+  "errors": []
+}

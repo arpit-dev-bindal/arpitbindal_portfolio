@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-27",
+  "image": {
+    "job": "51726436-a746-4a66-8fdd-9b0638f53391",
+    "model": "gpt_image_2",
+    "quote": 6.5,
+    "status": "completed",
+    "selection": "rejected-shape-mismatch"
+  },
+  "film": {
+    "job": "2d42ebe5-d503-46b5-91cd-4dd2c9197ac7",
+    "model": "seedance_2_0",
+    "quote": 27,
+    "status": "completed",
+    "reference": "design/phase-3/media/film-poster.webp",
+    "selection": "rejected-layer-count-drift"
+  },
+  "selectedFilm": "design/phase-3/media/material-film.mp4",
+  "reservedCredits": 34,
+  "availableCredits": 66,
+  "masters": [
+    {
+      "file": "design/phase-13/masters/material-film.mp4",
+      "bytes": 1440269,
+      "sha256": "591f7d604c0a72a2ca54a699552df81d0ec3d2b0e1e6c8fdb50b2ec2022342cf"
+    },
+    {
+      "file": "design/phase-13/masters/structure.png",
+      "bytes": 4335682,
+      "sha256": "c16556335eaca9a471366a2b8eb68d17a3189b8701a353358f2cd795094b0fa9"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+import assert from 'node:assert/strict';
+import { mkdir, writeFile, readFile } from 'node:fs/promises';
+const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? 'playwright');
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const report={checks:[],errors:[]};
+await mkdir('design/phase-14/review',{recursive:true});
+try {
+ const page=await browser.newPage({viewport:{width:1440,height:1000}});
+ page.on('pageerror',e=>report.errors.push(e.message));
+ for(const route of ['work','journey','about','ai-systems','work/backupdata','contact']) {
+  await page.goto(`http://127.0.0.1:4175/${route}`);
+  await page.locator('[data-page-reveal]').first().waitFor();
+  await page.getByRole('button',{name:'Motion: on',exact:true}).click();
+  await page.waitForFunction(()=>document.documentElement.classList.contains('motion-off'));
+  await page.waitForFunction(()=>[...document.querySelectorAll('[data-page-reveal]')].every(el=>getComputedStyle(el).transform==='none'));
+  assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior),'auto');
+  await page.getByRole('button',{name:'Motion: off',exact:true}).click();
+ }
+ report.checks.push('Shared reveals respect Motion off across six page layouts; text remains visible');
+ await page.goto('http://127.0.0.1:4175/');
+ await page.locator('.scene-widget[data-ready="true"]').waitFor();
+ await page.locator('#film-root').scrollIntoViewIfNeeded();
+ await page.locator('.scroll-film[data-ready="true"]').waitFor();
+ await page.getByRole('button',{name:'Play film',exact:true}).click();
+ await page.waitForFunction(()=>!document.querySelector('video').paused);
+ await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});
+ await page.waitForFunction(()=>document.querySelector('video').paused);
+ await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'));});
+ assert.equal(await page.locator('video').evaluate(el=>el.paused),true);
+ await page.getByRole('button',{name:'Play film',exact:true}).click();
+ await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+ await page.waitForFunction(()=>document.querySelector('video').paused);
+ report.checks.push('Film pauses off-screen and after a simulated hidden-tab event; return does not restart playback');
+ await page.locator('#film-root').scrollIntoViewIfNeeded();
+ await page.locator('.visitor-film-controls summary').click();
+ await page.getByRole('button',{name:'Use scroll',exact:true}).click();
+ await page.setViewportSize({width:390,height:844});
+ await page.waitForFunction(()=>document.querySelector('.scroll-film').dataset.mode==='play');
+ assert.equal(await page.locator('video').evaluate(el=>el.controls),true);
+ report.checks.push('Desktop-to-mobile resize restores native playback controls');
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.goto('http://127.0.0.1:4175/');
+ await page.locator('.visitor-scene').waitFor();
+ assert.equal(await page.locator('canvas').count(),0);
+ assert.equal(await page.locator('video').getAttribute('src'),null);
+ report.checks.push('Reduced motion avoids scene creation and automatic video loading');
+ for(const name of ['material-film.mp4','film-poster.webp','scene-poster.webp']) assert.deepEqual(await readFile(`dist/media/${name}`),await readFile(`design/phase-13/exports/selected-${name}`));
+ report.checks.push('Site media exactly matches the approved exports');
+ assert.deepEqual(report.errors,[]);
+} finally {await writeFile('design/phase-14/review/browser-checks.json',JSON.stringify(report,null,2)+'\n');await browser.close();}
+console.log(report);

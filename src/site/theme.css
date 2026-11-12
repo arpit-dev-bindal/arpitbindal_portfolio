@@ -1,0 +1,70 @@
+/* Ink and gilt theme shared by every route. It loads after the earlier styles and remaps their tokens. */
+:root {
+  --base-bg: #0a0908;
+  --heading-color: #f2ecdf;
+  --body-muted: #a39c8d;
+  --accent-color: #c6a15b;
+  --accent-soft: #dfc694;
+  --hairline: rgba(242, 236, 223, .14);
+  --hairline-strong: rgba(242, 236, 223, .32);
+  --glass-fill: rgba(242, 236, 223, .03);
+  --glass-border: var(--hairline);
+  --action-inverse: #f2ecdf;
+  --action-inverse-fg: #0a0908;
+  --duration-fast: 180ms;
+  --ease-spring: cubic-bezier(.16, 1, .3, 1);
+  --ink: var(--base-bg);
+  --surface: #12100d;
+  --paper: #0d0c0a;
+  --white: var(--heading-color);
+  --text: var(--heading-color);
+  --muted-dark: var(--body-muted);
+  --muted-light: var(--body-muted);
+  --rose: var(--accent-soft);
+  --rose-ink: var(--accent-soft);
+  --line-dark: var(--hairline);
+  --line-light: var(--hairline);
+  --display: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: var(--body);
+  --tower: var(--display);
+  --radius-control: 2px;
+  --radius-media: 4px;
+}
+html { background: var(--base-bg); color-scheme: dark; }
+body { background: var(--base-bg); color: var(--heading-color); font-family: var(--body); overflow-x: hidden; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.01em; }
+::selection { background: var(--accent-color); color: #0a0908; }
+a:focus-visible, button:focus-visible, summary:focus-visible, .light a:focus-visible, .light button:focus-visible, .light summary:focus-visible { outline: 1px solid var(--accent-soft); outline-offset: 5px; }
+
+/* Header: monogram, plain link row, outlined action. */
+.site-header { height: 88px; border-bottom: 0; max-width: none; padding-inline: clamp(20px, 4vw, 56px); }
+.wordmark { display: inline-flex; align-items: center; gap: 12px; font: 400 22px/1 var(--display); letter-spacing: .01em; }
+.wordmark svg { width: 38px; height: 38px; flex: none; }
+.wordmark:hover { text-decoration: none; }
+.monogram-ring { fill: none; stroke: var(--accent-color); stroke-width: .8; }
+.monogram-letters { fill: var(--heading-color); font: 400 21px var(--display); letter-spacing: -.04em; }
+.site-nav { gap: clamp(16px, 2.4vw, 36px); position: absolute; left: 50%; transform: translateX(-50%); }
+.site-nav a { position: relative; min-height: 38px; padding: 0; color: var(--body-muted); font: 500 11.5px/38px var(--body); letter-spacing: .2em; text-transform: uppercase; transition: color var(--duration-fast); }
+.site-nav a::after { content: ''; display: block; position: absolute; left: 0; right: 0; bottom: 6px; height: 1px; background: var(--accent-color); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease-spring); }
+.site-nav a:hover, .site-header .site-nav a:hover { color: var(--heading-color); background: none; text-decoration: none; }
+.site-nav a:hover::after, .site-nav a[aria-current]::after { transform: scaleX(1); }
+.site-nav a[aria-current], .mobile-navigation a[aria-current] { color: var(--heading-color); background: none; text-decoration: none; }
+.header-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.header-cta { display: inline-flex; align-items: center; min-height: 42px; padding-inline: 22px; border: 1px solid var(--accent-color); border-radius: 2px; color: var(--accent-soft); font: 500 11.5px var(--body); letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; transition: background var(--duration-fast), color var(--duration-fast); }
+.site-header a.header-cta:hover { background: var(--accent-color); color: #0a0908; text-decoration: none; }
+.motion-toggle { min-height: 38px; padding-inline: 14px; border: 1px solid var(--hairline); border-radius: 2px; background: none; color: var(--body-muted); font: 500 11px var(--body); letter-spacing: .14em; text-transform: uppercase; }
+.mobile-navigation summary { border-radius: 2px; border-color: var(--hairline); background: none; padding-inline: 16px; font: 500 11.5px var(--body); letter-spacing: .2em; text-transform: uppercase; }
+.mobile-navigation nav { background: #0d0c0a; z-index: 30; }
+
+/* Inner pages keep their structure and take the dark surfaces. */
+.light { background: var(--paper); color: var(--heading-color); border-top: 1px solid var(--line-dark); }
+.button { border-radius: 2px; }
+.mono, .label { font-family: var(--body); letter-spacing: .16em; text-transform: uppercase; font-size: 11.5px; }
+.contact { border-top: 1px solid var(--line-dark); }
+.contact-top h2 { font-size: clamp(40px, 5.4vw, 80px); font-weight: 400; }
+.footer-line { color: var(--body-muted); font-size: 13.5px; }
+img { border-radius: 0; }
+.backup-sources button[aria-pressed=true] { color: var(--action-inverse-fg); }
+@media (max-width: 1023px) { .site-nav { position: static; transform: none; } .header-actions { margin-left: 0; } }
+@media (max-width: 767px) { .site-header { height: 72px; } .site-nav { display: none; } .header-actions { margin-left: auto; } .wordmark { gap: 9px; font-size: 18px; } .wordmark svg { width: 32px; height: 32px; } .header-cta { min-height: 38px; padding-inline: 14px; } }

@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "lighthouse: keyboard disclosures and section focus work; no Home media loads",
+    "lighthouse: five widths fit; reduced motion removes the control transition",
+    "lighthouse: direct fragments, disclosures, and next-study links work without JavaScript",
+    "1mb: keyboard disclosures and section focus work; no Home media loads",
+    "1mb: five widths fit; reduced motion removes the control transition",
+    "1mb: direct fragments, disclosures, and next-study links work without JavaScript"
+  ],
+  "errors": []
+}

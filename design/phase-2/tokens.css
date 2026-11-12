@@ -1,0 +1,24 @@
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 500; font-display: swap; src: url('./assets/space-grotesk-medium.ttf') format('truetype'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 600; font-display: swap; src: url('./assets/space-grotesk-semibold.ttf') format('truetype'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./assets/ibm-plex-mono-regular.ttf') format('truetype'); }
+:root {
+  --ink: #101216;
+  --surface: #1b1f26;
+  --paper: #f2f3f5;
+  --white: #f4f5f7;
+  --text: #161a20;
+  --muted-dark: #afb6c2;
+  --muted-light: #535d6b;
+  --rose: #e75b7f;
+  --rose-ink: #aa294e;
+  --line-dark: #34383f;
+  --line-light: #d4d8de;
+  --display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+  --gutter: clamp(24px, 5vw, 80px);
+  --page-width: 1440px;
+  --radius-control: 4px;
+  --radius-media: 12px;
+  --radius-dialog: 20px;
+}

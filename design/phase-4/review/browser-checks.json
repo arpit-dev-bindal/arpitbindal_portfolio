@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "Ten direct routes and 70 local links resolve, including fragments and current-page labels",
+    "Trailing slash routes work; unknown routes return a useful HTTP 404 page",
+    "Skip link moves focus; browser back, forward, and reload retain correct routes",
+    "All ten routes fit 320, 768, 1024, and 1440 pixel widths",
+    "Mobile menu supports Enter, Tab, Escape, focus return, navigation, and desktop resize",
+    "Motion preference survives routes; Home scene and film load without the prototype test interface",
+    "Mobile navigation and contact links work without JavaScript"
+  ],
+  "errors": []
+}

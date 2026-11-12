@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "All four contribution controls support keyboard open and close; the study requests no Home media",
+    "Contents links move URL and keyboard focus to each study section",
+    "The open study fits five viewport widths from 320 to 1440 pixels",
+    "Reduced motion removes control animation; direct section URLs retain the target",
+    "Study content, contribution controls, and onward links work without JavaScript"
+  ],
+  "errors": []
+}

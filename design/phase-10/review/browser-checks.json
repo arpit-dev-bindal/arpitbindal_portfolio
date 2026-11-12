@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Four selected studies and six SMDEVOPS entries retain attribution and keyboard controls",
+    "All six direct entry links open content; same-fragment links, back, and reload preserve access",
+    "Five viewport widths fit; original Turby artwork loads",
+    "All six entries open through touch and without JavaScript"
+  ],
+  "errors": []
+}

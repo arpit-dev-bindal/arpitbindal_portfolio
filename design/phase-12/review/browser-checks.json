@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Contact links use source data; keyboard copy passes the exact address and retains focus",
+    "Denied and unavailable clipboard paths preserve the email and announce manual-copy instructions",
+    "Contact fits five viewport widths with selectable email and visible controls",
+    "Email, profiles, and portfolio links work without JavaScript; no unavailable PDF link appears"
+  ],
+  "errors": []
+}

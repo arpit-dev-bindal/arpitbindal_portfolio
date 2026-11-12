@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Automation boundaries and MCP allow/deny controls work without external requests",
+    "Section links move focus; the RAG illustration leaves unsupported questions unresolved",
+    "Five viewport widths fit without horizontal overflow",
+    "Without JavaScript, rules and contracts remain readable; November retains its planned label"
+  ],
+  "errors": []
+}

@@ -1,0 +1,27 @@
+import { projectVisual } from '../project-visuals.ts';
+import { escape as e } from '../shell.ts';
+import type { getPublicRecords } from '../../content/validate.ts';
+type Record = ReturnType<typeof getPublicRecords>[number];
+const areas = [
+  { id: 'infrastructure', title: 'Infrastructure', description: 'I planned the infrastructure for the backup service.', detail: 'This responsibility covered the service foundation.' },
+  { id: 'backend', title: 'Backend', description: 'I built the backend for database and S3 backups.', detail: 'The backend formed part of the backup service.' },
+  { id: 'sdks', title: 'Developer tools', description: 'I built the Node.js, Go, and Python SDKs.', detail: 'The SDKs exposed custom backup flows in each language environment.' },
+  { id: 'cli', title: 'Command line', description: 'I built the CLI for the service.', detail: 'The CLI provided a command-line interface.' },
+];
+const sections = [ ['overview', 'Overview'], ['scope', 'My contribution'], ['system', 'Product scope'], ['decisions', 'Technical choice'], ['delivery', 'Delivered components'], ['extension', 'AI extension'] ];
+export function backupDataStudy(project: Record, memory: Record) {
+  return `<article class="backup-study">
+<section class="wrap inner-hero"><a class="back" href="/work">← All work</a><p class="mono study-eyebrow">Lighthouse · Product engineering</p><h1>BackupData.<br><span class="muted">From service to SDK.</span></h1><p class="lead">${e(project.summary)}</p><dl class="study-meta"><div><dt>Context</dt><dd>${e(project.organization)}</dd></div><div><dt>Responsibility</dt><dd>Infrastructure, backend, SDKs, CLI</dd></div></dl><div class="study-hero-visual">${projectVisual('backupdata')}</div><a class="text-link study-jump" href="#overview">Read the study ↓</a></section>
+<div class="light section"><div class="wrap study-layout">
+<aside class="study-contents"><p>In this study</p><nav aria-label="Study contents">${sections.map(([id, label]) => `<a href="#${id}">${label}</a>`).join('')}</nav></aside>
+<div class="study-body">
+<section id="overview" tabindex="-1"><p class="mono study-eyebrow">01 / Overview</p><h2>A backup service.<br>A wider responsibility.</h2><p class="intro-copy">${e(project.claims[0])}</p><div class="study-summary"><div><h3>Product</h3><p>BackupData provides backups for databases and S3 data.</p></div><div><h3>My work</h3><p>I planned the infrastructure and built the backend and developer tools.</p></div><div><h3>Delivery</h3><p>The work included Node.js, Go, and Python SDKs and a command-line interface.</p></div></div></section>
+<section id="scope" tabindex="-1"><p class="mono study-eyebrow">02 / Contribution</p><h2>Across four parts<br>of the product.</h2><p class="study-support">Open each area to inspect my contribution.</p><div class="scope-explorer">${areas.map((area, index) => `<details id="scope-${area.id}"><summary><span class="mono">0${index + 1}</span><span>${area.title}</span><span class="scope-plus" aria-hidden="true">+</span></summary><div class="scope-detail"><p>${area.description}</p><p class="muted">${area.detail}</p></div></details>`).join('')}</div></section>
+<section id="system" tabindex="-1"><p class="mono study-eyebrow">03 / Product scope</p><h2>Data sources.<br>Service. Developer tools.</h2><figure class="backup-map"><div class="backup-map-grid"><div><p class="map-label">Sources</p><ul><li>SQL databases</li><li>PostgreSQL</li><li>AWS DynamoDB</li><li>S3 data</li></ul></div><div class="map-service"><p class="map-label">Product</p><strong>BackupData</strong><span>Backup service</span></div><div><p class="map-label">Developer tools</p><ul><li>Go SDK</li><li>Node.js SDK</li><li>Python SDK</li><li>CLI</li></ul></div></div><figcaption>Scope diagram. This view groups confirmed product areas; it does not specify runtime architecture or data flow.</figcaption></figure><p class="study-support">The source categories describe the backup service. The tools describe the developer interfaces I built.</p></section>
+<section id="decisions" tabindex="-1"><p class="mono study-eyebrow">04 / Technical choice</p><h2>Different sources.<br>Custom backup flows.</h2><div class="decision-record"><div><h3>The problem</h3><p>${e(project.claims[1])}</p></div><div><h3>The choice</h3><p>${e(project.claims[2])}</p></div><div><h3>The implementation</h3><p>${e(project.claims[3])}</p></div></div><p class="study-support">These tools let developers automate backups from their application environments.</p></section>
+<section id="delivery" tabindex="-1"><p class="mono study-eyebrow">05 / Delivery</p><h2>The work I delivered.</h2><ul class="delivery-list"><li>Infrastructure plan for the backup service.</li><li>Backend for database and S3 backups.</li><li>Go SDK.</li><li>Node.js SDK.</li><li>Python SDK.</li><li>Command-line interface.</li></ul><a class="text-link" href="https://www.backupdata.io/">Visit the current product ↗</a></section>
+<section id="extension" tabindex="-1"><p class="mono study-eyebrow">06 / AI extension</p><h2>From backups<br>to shared context.</h2><p class="intro-copy">${e(memory.summary)}</p><a class="text-link study-jump" href="/ai-systems">Explore AI Systems ↗</a></section>
+</div></div></div>
+<nav class="wrap study-next" aria-label="Related work"><div><p class="mono">Next study</p><a href="/work/lighthouse">Lighthouse ↗</a><p class="muted">Frontend ownership and wallet integration.</p></div><a class="text-link" href="/contact">Discuss this work ↗</a></nav>
+</article>`;
+}

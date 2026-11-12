@@ -1,0 +1,35 @@
+.site-header { position: relative; z-index: 3; }
+.site-nav a[aria-current], .mobile-navigation a[aria-current] { text-decoration: underline; text-decoration-color: var(--rose); text-underline-offset: 8px; }
+.mobile-navigation { display: none; }
+#main:focus { outline: none; }
+.route-intro { padding-block: 96px 64px; }
+.route-intro h1 { max-width: 1000px; }
+.route-intro p { max-width: 760px; margin-top: 32px; }
+.route-list { padding-block: 0 96px; }
+.route-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 48px; padding-block: 40px; border-top: 1px solid var(--line-dark); }
+.route-row p + p, .route-row h2 + p { margin-top: 16px; }
+.route-row h2 { font-size: clamp(28px, 3vw, 40px); }
+.route-row a { text-decoration: underline; text-underline-offset: 6px; }
+.route-row .mono { font-size: 14px; color: var(--muted-dark); }
+.route-contact { display: flex; flex-wrap: wrap; gap: 32px; padding-bottom: 96px; }
+.route-contact a { min-height: 44px; display: inline-flex; align-items: center; overflow-wrap: anywhere; }
+@media (max-width: 767px) {
+  .mobile-navigation { display: block; }
+  .mobile-navigation summary { cursor: pointer; min-height: 44px; min-width: 64px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line-dark); }
+  .mobile-navigation summary::-webkit-details-marker { display: none; }
+  .mobile-navigation nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--ink); padding: 24px var(--gutter); border-block: 1px solid var(--line-dark); box-shadow: 0 16px 24px #0004; }
+  .mobile-navigation nav a { display: flex; align-items: center; min-height: 52px; font-size: 22px; }
+  .route-intro { padding-block: 64px 48px; }
+  .route-row { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .route-intro h1 { font-size: clamp(40px, 10vw, 64px); overflow-wrap: anywhere; }
+  .footer-links { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
+#scene-root, #film-root { min-width: 0; }
+#film-root > video { width: 100%; aspect-ratio: 16 / 9; display: block; }
+
+html.motion-off { scroll-behavior: auto !important; }
+
+/* The clean preview removes review-only chrome while keeping mobile 3D access. */
+.clean-preview .review-notice, .clean-preview .scene-hide-clean { display: none; }
+.clean-preview .scene-options:not(:has(button:not(.scene-hide-clean))) { display: none; }

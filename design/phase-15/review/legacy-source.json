@@ -1,0 +1,15 @@
+{
+  "checked": "2026-10-27",
+  "page": "https://arpitbindal.com/",
+  "script": "https://arpitbindal.com/static/js/main.bcd41ede.chunk.js",
+  "sha256": "a8521a6e169a472379aedf82df7e26da3f67a5c5f878c9241b6e16f6742da34e",
+  "routes": [
+    "/home",
+    "/experience",
+    "/education",
+    "/contact",
+    "/splash",
+    "/projects"
+  ],
+  "basis": "Public script route declarations and the recorded hash-route plan"
+}

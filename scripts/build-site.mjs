@@ -1,0 +1,83 @@
+import { mkdir, writeFile, readFile, cp, rm } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { build } from 'esbuild';
+import { portfolio, profile } from '../src/content/portfolio.ts';
+import { getPublicRecords } from '../src/content/validate.ts';
+import { lighthouseStudy, oneMbStudy } from '../src/site/studies/product-studies.ts';
+import { turbyStudy } from '../src/site/studies/turby.ts';
+import { aiPage } from '../src/site/ai-page.ts';
+import { journeyPage, aboutPage } from '../src/site/career-pages.ts';
+import { contactPage } from '../src/site/contact-page.ts';
+import { workPage } from '../src/site/work-page.ts';
+import { landingPage } from '../src/site/landing-page.ts';
+globalThis.hasPublicFile = path => existsSync(`public${path}`);
+import { backupDataStudy } from '../src/site/studies/backupdata.ts';
+import { siteOrigin } from '../src/site/metadata.ts';
+import { routes } from '../src/site/routes.ts';
+import { shell, escape as e } from '../src/site/shell.ts';
+const records = getPublicRecords(portfolio);
+const get = id => { const r = records.find(r => r.id === id); if (!r) throw new Error(`Missing record ${id}`); return r; };
+const intro = (title, text, heading = 'h1') => `<section class="wrap route-intro"><${heading}>${e(title)}</${heading}><p class="muted">${e(text)}</p></section>`;
+const rows = (items, linked = false) => `<section class="wrap route-list" aria-label="Details">${items.map(r => `<article class="route-row"><div><h2>${linked ? `<a href="/work/${r.id}">${e(r.title)} ↗</a>` : e(r.title)}</h2><p class="mono">${e(r.organization ?? 'Freelance and personal work')}${r.periodLabel ? ` · ${e(r.periodLabel)}` : ''}${r.workState === 'planned' ? ' · Planned' : ''}</p></div><div><p>${e(r.summary)}</p>${r.claims.map(c => `<p>${e(c)}</p>`).join('')}</div></article>`).join('')}</section>`;
+// The earlier stylesheets carry fixed colours for light sections. This pass maps them to the dark theme.
+const hsl = hex => { const v = hex.length === 4 ? [...hex.slice(1)].map(c => c + c).join('') : hex.slice(1, 7); const [r, g, b] = [0, 2, 4].map(i => parseInt(v.slice(i, i + 2), 16) / 255); const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2, d = max - min; const s = d ? d / (1 - Math.abs(2 * l - 1)) : 0; const h = !d ? 0 : max === r ? ((g - b) / d + 6) % 6 * 60 : max === g ? ((b - r) / d + 2) * 60 : ((r - g) / d + 4) * 60; return { h, s, l }; };
+const recolour = (property, hex) => {
+  if (![4, 7].includes(hex.length)) return hex;
+  const { h, s, l } = hsl(hex);
+  const rose = s > .22 && (h > 310 || h < 20);
+  if (/^(background|background-color)$/.test(property)) return rose ? (l > .6 ? '#dfc694' : '#8a6d33') : l > .6 ? '#f2ecdf0a' : l > .3 ? '#f2ecdf12' : '#12100d';
+  if (/^(border|outline)/.test(property)) return rose ? '#c6a15b' : '#f2ecdf24';
+  if (property === 'box-shadow') return rose ? '#c6a15b33' : '#00000066';
+  if (/^(color|fill|stroke|text-decoration-color)$/.test(property)) return rose ? '#dfc694' : l < .62 ? '#a39c8d' : hex;
+  return hex;
+};
+const retheme = css => css.replace(/(?<=[{;]\s*)([a-z-]+)(\s*:\s*)([^;{}]+)/g, (_, property, colon, value) => property + colon + value.replace(/#[0-9a-fA-F]{3,8}\b/g, hex => recolour(property, hex.toLowerCase())));
+const themed = async (from, to) => writeFile(to, retheme(await readFile(from, 'utf8')));
+const root = 'dist';
+await rm(root, { recursive: true, force: true });
+await mkdir(root, { recursive: true });
+await cp('public/social', `${root}/social`, { recursive: true });
+await writeFile(`${root}/robots.txt`, 'User-agent: *\nDisallow: /\n');
+await writeFile(`${root}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(route => `<url><loc>${siteOrigin}${route.path}</loc></url>`).join('')}</urlset>`);
+await cp('public/turby', `${root}/turby`, { recursive: true });
+await cp('design/phase-2/tokens.css', `${root}/tokens.css`);
+await themed('design/phase-2/frame.css', `${root}/frame.css`);
+await cp('design/phase-2/assets', `${root}/assets`, { recursive: true });
+await mkdir(`${root}/media`, { recursive: true });
+for (const name of ['material-film.mp4', 'film-poster.webp', 'scene-poster.webp']) {
+  await cp(`design/phase-13/exports/selected-${name}`, `${root}/media/${name}`);
+}
+await themed('design/phase-3/prototype.css', `${root}/prototype.css`);
+await themed('src/site/site.css', `${root}/site.css`);
+await themed('src/site/finish.css', `${root}/finish.css`);
+await cp('public/resume', `${root}/resume`, { recursive: true });
+await cp('src/site/landing.css', `${root}/landing.css`);
+await cp('src/site/theme.css', `${root}/theme.css`);
+for (const folder of ['portrait', 'events', 'brand', 'logos', 'docs', 'ai']) if (existsSync(`public/${folder}`)) await cp(`public/${folder}`, `${root}/${folder}`, { recursive: true });
+if (existsSync('public/brand/favicon.ico')) await cp('public/brand/favicon.ico', `${root}/favicon.ico`);
+await themed('src/site/project-visuals.css', `${root}/project-visuals.css`);
+await themed('src/site/ai.css', `${root}/ai.css`);
+await themed('src/site/work.css', `${root}/work.css`);
+await themed('src/site/career.css', `${root}/career.css`);
+await themed('src/site/contact.css', `${root}/contact.css`);
+await themed('src/site/studies/study.css', `${root}/study.css`);
+for (const route of routes) {
+  let content;
+  if (route.path === '/') content = landingPage(records, profile.introduction, profile.contact, Object.fromEntries(portfolio.records.map(r => [r.id, r.period])));
+  else if (route.path === '/work/backupdata') content = backupDataStudy(get('backupdata'), get('agent-memory'));
+  else if (route.path === '/work/lighthouse') content = lighthouseStudy(records);
+  else if (route.path === '/work/1mb') content = oneMbStudy(records);
+  else if (route.path === '/work/turby') content = turbyStudy(records);
+  else if (route.path === '/ai-systems') content = aiPage(records);
+  else if (route.path === '/work') content = workPage(records);
+  else if (route.path.startsWith('/work/')) { const r = get(route.path.split('/').at(-1)); content = intro(r.title, r.summary) + rows([r]) + '<div class="wrap route-contact"><a href="/work">← All work</a><a href="/contact">Discuss this work ↗</a></div>'; }
+  else if (route.path === '/journey') content = journeyPage(records);
+  else if (route.path === '/about') content = aboutPage(records, profile.introduction);
+  else content = contactPage(profile.contact);
+  const folder = `${root}${route.path === '/' ? '' : route.path}`;
+  await mkdir(folder, { recursive: true });
+  await writeFile(`${folder}/index.html`, shell(route.path, route.title, content, profile.contact));
+}
+await writeFile(`${root}/404.html`, shell('/404', 'Page not found', intro('Page not found.', 'This address does not match a page.') + '<div class="wrap route-contact"><a href="/">Return to Home</a><a href="/work">View work</a></div>', profile.contact));
+await build({ entryPoints: { site: 'src/site/main.ts', legacy: 'src/site/legacy-navigation.ts' }, outdir: `${root}/bundle`, bundle: true, jsx: 'automatic', splitting: true, format: 'esm', target: 'es2022', minify: true, define: { 'process.env.NODE_ENV': '"production"' } });
+console.log(`Built ${routes.length} routes and the missing-page response.`);

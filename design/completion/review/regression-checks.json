@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-29",
+  "unitTests": 31,
+  "typecheck": "passed",
+  "build": "passed",
+  "browserGroups": {
+    "site": 7,
+    "study": 5,
+    "home": 4,
+    "products": 6,
+    "turby": 4,
+    "ai": 4,
+    "work": 4,
+    "career": 4,
+    "contact": 4,
+    "integration": 5,
+    "metadata": 4,
+    "option-a": 3
+  },
+  "regressionGroups": 54,
+  "completionGroups": 4,
+  "releaseGroups": 4,
+  "allPageAccessibilityScans": 10,
+  "errors": []
+}

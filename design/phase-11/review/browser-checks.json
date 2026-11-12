@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "All ten career, education, event, and plan records retain their source text and dates",
+    "Keyboard chapter links move focus; event links, reload, and browser history work",
+    "Both pages fit five widths, exclude certifications, and omit unavailable resume downloads",
+    "Career links, event content, and education remain available without JavaScript"
+  ],
+  "errors": []
+}

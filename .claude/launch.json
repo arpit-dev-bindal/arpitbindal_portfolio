@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "portfolio-preview", "runtimeExecutable": "sh", "runtimeArgs": ["-c", "PREVIEW_PHASE=4 node scripts/serve-design-preview.mjs"], "port": 4175 }
+  ]
+}

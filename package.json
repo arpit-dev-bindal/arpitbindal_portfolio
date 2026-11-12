@@ -1,0 +1,55 @@
+{
+  "name": "arpit-bindal-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.motion.json",
+    "content:check": "node scripts/check-content.mjs",
+    "check": "npm run typecheck && npm test && npm run content:check",
+    "design:build": "node scripts/build-design-preview.mjs",
+    "design:preview": "npm run design:build && node scripts/serve-design-preview.mjs",
+    "motion:build": "node scripts/build-motion-prototype.mjs",
+    "motion:preview": "npm run motion:build && PREVIEW_PHASE=3 node scripts/serve-design-preview.mjs",
+    "motion:check": "node scripts/check-motion-prototype.mjs",
+    "motion:render": "node scripts/render-motion-film.mjs",
+    "build": "node scripts/build-site.mjs",
+    "preview": "npm run build && PREVIEW_PHASE=4 node scripts/serve-design-preview.mjs",
+    "site:check": "node scripts/check-site.mjs",
+    "study:check": "node scripts/check-study.mjs",
+    "home:check": "node scripts/check-home.mjs",
+    "products:check": "node scripts/check-product-studies.mjs",
+    "turby:check": "node scripts/check-turby.mjs",
+    "ai:check": "node scripts/check-ai.mjs",
+    "work:check": "node scripts/check-work.mjs",
+    "career:check": "node scripts/check-career.mjs",
+    "contact:check": "node scripts/check-contact.mjs",
+    "integration:check": "node scripts/check-integrated-motion.mjs",
+    "metadata:check": "node scripts/check-metadata.mjs",
+    "release:check": "node scripts/check-release-preview.mjs",
+    "preview:clean": "npm run build && PREVIEW_PHASE=4 PREVIEW_CLEAN=1 node scripts/serve-design-preview.mjs",
+    "option-a:check": "node scripts/check-option-a.mjs",
+    "completion:check": "node scripts/check-completed-site.mjs",
+    "resume:build": "node scripts/build-resume.mjs"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@react-three/fiber": "^9.8.2",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.19",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.186.1"
+  }
+}

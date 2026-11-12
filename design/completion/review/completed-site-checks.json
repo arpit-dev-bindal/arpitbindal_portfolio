@@ -1,0 +1,71 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    },
+    {
+      "path": "/work",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    },
+    {
+      "path": "/work/backupdata",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    },
+    {
+      "path": "/work/lighthouse",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    },
+    {
+      "path": "/work/1mb",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    },
+    {
+      "path": "/work/turby",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    },
+    {
+      "path": "/ai-systems",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    },
+    {
+      "path": "/journey",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    },
+    {
+      "path": "/about",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    },
+    {
+      "path": "/contact",
+      "violations": [],
+      "overflow": [],
+      "editorial": false
+    }
+  ],
+  "errors": [],
+  "checks": [
+    "Resume download returns a PDF with the correct content type",
+    "All ten pages retain content and narrow reflow without JavaScript",
+    "AI examples open through native visitor disclosures",
+    "The career rail identifies the visible chapter"
+  ]
+}

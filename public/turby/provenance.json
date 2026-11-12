@@ -1,0 +1,43 @@
+{
+  "sourcePage": "https://lighthouse.storage/turby",
+  "retrieved": "2026-10-27",
+  "treatment": "Original published JPEG files; no visual edits.",
+  "assets": [
+    {
+      "file": "turby_1.jpeg",
+      "source": "https://lighthouse.storage/turby/turby_1.jpeg",
+      "bytes": 69657,
+      "sha256": "e9b16a6c865a9c0319b86affef2c45e87b909399dcfa9360134497940621df37"
+    },
+    {
+      "file": "turby_11.jpeg",
+      "source": "https://lighthouse.storage/turby/turby_11.jpeg",
+      "bytes": 75716,
+      "sha256": "dd1bee426ed89fd78e91c81110e7563a4132b247edf33956e3cbdb3d2a600c5a"
+    },
+    {
+      "file": "turby_2.jpeg",
+      "source": "https://lighthouse.storage/turby/turby_2.jpeg",
+      "bytes": 88484,
+      "sha256": "cb5626c12771217f312afad1bd4210000465480bb22994a083dc77746f63101c"
+    },
+    {
+      "file": "turby_3.jpeg",
+      "source": "https://lighthouse.storage/turby/turby_3.jpeg",
+      "bytes": 91681,
+      "sha256": "8e8d132c90747b4ebedd0c101f766d591ace26e90783766eea829cc2fe283491"
+    },
+    {
+      "file": "turby_6.jpeg",
+      "source": "https://lighthouse.storage/turby/turby_6.jpeg",
+      "bytes": 117605,
+      "sha256": "1d92ad511e2756e9658b421adb9a427074a8c4913e83b918914388abfad5e5a5"
+    },
+    {
+      "file": "turby_8.jpeg",
+      "source": "https://lighthouse.storage/turby/turby_8.jpeg",
+      "bytes": 115297,
+      "sha256": "b2180a7c0db7bc89c928b637487d79fb023e3398d4febb7d35af785d5eec5f0f"
+    }
+  ]
+}

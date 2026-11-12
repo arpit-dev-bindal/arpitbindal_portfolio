@@ -1,0 +1,42 @@
+[
+  {
+    "file": "design/phase-13/exports/structure-concept-640.webp",
+    "bytes": 14778,
+    "sha256": "e8b60efd5aa09923234782939a8d45ea9f786df9ff9466203dbaf5a35f87fe23"
+  },
+  {
+    "file": "design/phase-13/exports/structure-concept-960.webp",
+    "bytes": 27512,
+    "sha256": "ac21910808cfe387a3a4fda45520cf2b32b6109bea179c920572a4c00a875188"
+  },
+  {
+    "file": "design/phase-13/exports/structure-concept-1440.webp",
+    "bytes": 57546,
+    "sha256": "9e70989cb1b44a472a009617b3fb5700de0c8d4f63f1c11ce87d2840c5dcb032"
+  },
+  {
+    "file": "design/phase-13/exports/material-film.mp4",
+    "bytes": 1258007,
+    "sha256": "57991f1f65c55310d2e64ccc889ef4f54589fab8bc88f9da0d01698af977c183"
+  },
+  {
+    "file": "design/phase-13/exports/film-poster.webp",
+    "bytes": 19892,
+    "sha256": "8f4f02f85afca3635db19f732be2aa732b98bdf92ebb8583551b94d2fe30a972"
+  },
+  {
+    "file": "design/phase-13/exports/selected-material-film.mp4",
+    "bytes": 838666,
+    "sha256": "a19ed95b08f20f5a87192213bb7e758f39a02ea05d650226224e51cd44757243"
+  },
+  {
+    "file": "design/phase-13/exports/selected-film-poster.webp",
+    "bytes": 22476,
+    "sha256": "b8bba64006b737825bf323ed57dd4a943f2acb7e009a906e445af839595bc2f4"
+  },
+  {
+    "file": "design/phase-13/exports/selected-scene-poster.webp",
+    "bytes": 22184,
+    "sha256": "5a2ed271984bd5638a741c4cf477c5639a97f680e9f4fa4cbd525e312087484e"
+  }
+]

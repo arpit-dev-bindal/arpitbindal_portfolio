@@ -1,0 +1,14 @@
+import { escape as e } from '../shell.ts';
+import { study, disclosure } from './product-studies.ts';
+import { turbyAssets } from './turby-assets.ts';
+import type { getPublicRecords } from '../../content/validate.ts';
+export function turbyStudy(records: ReturnType<typeof getPublicRecords>) {
+ const project = records.find(r => r.id === 'turby');
+ if (!project) throw new Error('Missing Turby record');
+ return study('Turby', 'From mascot to collection.', project.summary, 'Mascot design · Generation automation · Launch and mint', [
+  { id: 'overview', label: 'Overview', title: 'Design through delivery.', body: `<p class="intro-copy">${e(project.summary)}</p><p class="study-support">${e(project.claims[0])}</p><div class="study-summary"><div><h3>Design</h3><p>I designed the Turby mascot.</p></div><div><h3>Automation</h3><p>I automated the collection generation.</p></div><div><h3>Launch</h3><p>I handled launch work and supervised the mint.</p></div></div>` },
+  { id: 'gallery', label: 'Collection gallery', title: 'One character. Different expressions.', body: `<p class="study-support">Explore six finished variants from the official collection page.</p><div class="turby-gallery">${turbyAssets.map((asset, index) => `<figure><a class="turby-art-link" data-turby-index="${index}" href="/turby/${asset.file}" aria-label="View ${e(asset.name)}"><img src="/turby/${asset.file}" width="640" height="640" loading="lazy" decoding="async" alt="${e(asset.alt)}"></a><figcaption>${e(asset.name)}</figcaption></figure>`).join('')}</div><p class="turby-source">Images and variant names: <a href="https://lighthouse.storage/turby">official Lighthouse Turby page</a>. These are finished images, not editable trait layers.</p><dialog class="turby-dialog" aria-labelledby="turby-view-title"><div class="turby-dialog-top"><h3 id="turby-view-title"></h3><button type="button" data-gallery-close>Close</button></div><img width="640" height="640" alt=""><div class="turby-dialog-controls"><button type="button" data-gallery-previous>Previous</button><p aria-live="polite" data-gallery-position></p><button type="button" data-gallery-next>Next</button></div></dialog>` },
+  { id: 'contribution', label: 'Contribution', title: 'The character and the system behind it.', body: `<div class="scope-explorer">${disclosure('Mascot design', 'I designed the Turby mascot for Lighthouse.')}${disclosure('Collection generation', 'I automated NFT generation for the collection.')}${disclosure('Launch and mint', project.claims[0]!)}</div>` },
+  { id: 'delivery', label: 'Delivery', title: 'Ownership across the collection.', body: `<ul class="delivery-list"><li>Mascot design.</li><li>Automated collection generation.</li><li>Launch work.</li><li>Mint supervision.</li></ul><p class="turby-source">The gallery documents published artwork. It does not establish rarity, sales, or the size of the collection.</p>` },
+ ], { href: '/work/backupdata', title: 'BackupData' });
+}

@@ -1,0 +1,15 @@
+.contact-label { font-size: 12px; margin-bottom: 24px; }
+.contact-options { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; padding-bottom: 96px; }
+.contact-address { display: inline-block; font-size: clamp(20px, 2.6vw, 36px); padding-block: 24px 8px; border-bottom: 1px solid var(--rose); overflow-wrap: anywhere; max-width: 100%; user-select: text; }
+.contact-copy { margin-top: 24px; }
+.contact-copy button { font: inherit; font-size: 14px; min-height: 44px; padding: 12px 24px; border: 1px solid var(--line-dark); border-radius: 4px; background: transparent; color: inherit; cursor: pointer; }
+.contact-copy button[aria-disabled] { cursor: progress; }
+.contact-copy button:hover { border-color: var(--rose); }
+.contact-copy p { min-height: 48px; margin-top: 12px; font-size: 14px; }
+.contact-help { max-width: 520px; color: var(--muted-dark); font-size: 14px; }
+.contact-profiles a, .contact-context a { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 64px; padding-block: 16px; border-top: 1px solid var(--line-dark); font-size: 24px; }
+.contact-profiles p:not(.contact-label) { font-size: 14px; color: var(--muted-dark); margin-bottom: 32px; }
+.contact-context { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; }
+.contact-context a { border-color: var(--line-light); font-size: 20px; }
+.contact-context a:last-child { border-bottom: 1px solid var(--line-light); }
+@media(max-width:767px) { .contact-options, .contact-context { grid-template-columns: 1fr; gap: 48px; } .contact-options { padding-bottom: 64px; } }

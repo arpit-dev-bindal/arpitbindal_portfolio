@@ -1,0 +1,89 @@
+{
+  "accessibility": [
+    {
+      "path": "/",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "color-contrast",
+        "video-caption"
+      ]
+    },
+    {
+      "path": "/work",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "path": "/work/backupdata",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "path": "/work/lighthouse",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "path": "/work/1mb",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/work/turby",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/ai-systems",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/journey",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/about",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "path": "/contact",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    }
+  ],
+  "checks": [
+    "Ten routes checked with axe and 200% CSS zoom at 640px",
+    "WebGL failure retains the scene poster and recovery control",
+    "Failed film request retains a poster and visible failure message",
+    "Two cold-load mobile lab samples use 4× CPU slowdown, 150ms latency, and 1.6Mbps download"
+  ],
+  "failures": [],
+  "lab": [
+    {
+      "path": "/",
+      "lcp": 1072,
+      "cls": 0.011361373543686385,
+      "transferBytes": 725192
+    },
+    {
+      "path": "/work/backupdata",
+      "lcp": 924,
+      "cls": 0,
+      "transferBytes": 450152
+    }
+  ]
+}

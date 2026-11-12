@@ -1,0 +1,26 @@
+import * as THREE from 'three';
+import { makeStructure, setEnvironment } from './geometry.ts';
+import { initialPose } from './scene-state.ts';
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(1280, 720);
+renderer.setPixelRatio(1);
+renderer.setClearColor('#101216');
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(38, 1280 / 720, .1, 50);
+camera.position.set(5.4, 4.5, 6.6); camera.lookAt(0, 0, 0);
+const model = makeStructure(); scene.add(model.root);
+scene.add(new THREE.AmbientLight(0xffffff, .45));
+const key = new THREE.DirectionalLight(0xffffff, 3.2); key.position.set(-3, 5, 4); scene.add(key);
+const fill = new THREE.DirectionalLight(0xffffff, 1.8); fill.position.set(4, 2, -3); scene.add(fill);
+setEnvironment(renderer, scene);
+document.body.appendChild(renderer.domElement);
+Object.assign(window, { renderFilmFrame: (progress: number, type = 'image/png', width = 1280, height = 720) => {
+  renderer.setSize(width, height);
+  camera.aspect = width / height; camera.updateProjectionMatrix();
+  const p = Math.max(0, Math.min(1, progress));
+  const ease = p * p * (3 - 2 * p);
+  model.apply({ ...initialPose(), spread: 1 - ease, turn: Math.sin(p * Math.PI) * .2 });
+  renderer.render(scene, camera);
+  return renderer.domElement.toDataURL(type, .84);
+} });

@@ -1,0 +1,52 @@
+{
+  "initialGzipBytes": 120682,
+  "deferredGzipBytes": 250998,
+  "initial": [
+    {
+      "file": "design/phase-3/bundle/main.js",
+      "bytes": 336882,
+      "gzipBytes": 114525
+    },
+    {
+      "file": "design/phase-3/bundle/chunk-6NPPH5RE.js",
+      "bytes": 595,
+      "gzipBytes": 365
+    },
+    {
+      "file": "design/phase-3/bundle/chunk-DQIRXAXS.js",
+      "bytes": 14257,
+      "gzipBytes": 5404
+    },
+    {
+      "file": "design/phase-3/bundle/chunk-OOJM4CTU.js",
+      "bytes": 638,
+      "gzipBytes": 388
+    }
+  ],
+  "deferred": [
+    {
+      "file": "design/phase-3/bundle/SceneCanvas-WLAZM22B.js",
+      "bytes": 183834,
+      "gzipBytes": 58567
+    },
+    {
+      "file": "design/phase-3/bundle/chunk-CTJWDCVB.js",
+      "bytes": 746334,
+      "gzipBytes": 192431
+    }
+  ],
+  "media": [
+    {
+      "name": "material-film.mp4",
+      "bytes": 838666
+    },
+    {
+      "name": "scene-poster.webp",
+      "bytes": 22184
+    },
+    {
+      "name": "film-poster.webp",
+      "bytes": 22476
+    }
+  ]
+}
